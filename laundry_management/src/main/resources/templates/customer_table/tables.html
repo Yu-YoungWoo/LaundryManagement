@@ -13,8 +13,65 @@
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
-            <div th:replace="fragment/customer_table :: content"></div>
+            <!-- Main Content -->
+            <div id="content">
 
+                <nav th:replace="fragment/common/nav :: nav"></nav>
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col">
+                            <!-- Page Heading -->
+                            <h1 class="h3 mb-2 text-gray-800">손님 목록</h1>
+                            <p class="mb-4">손님들의 목록을 등록, 삭제하는 페이지입니다.</p>
+                        </div>
+                    </div>
+
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <span class="m-0 font-weight-bold text-primary align-items-center">손님 목록</span>
+                            <a class="text-white" th:href="@{/customer-list/add}">
+                                <button type="button" class="btn btn-primary ml-3">등록</button>
+                            </a>
+
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                    <tr>
+                                        <th>번호</th>
+                                        <th>이름</th>
+                                        <th>전화번호</th>
+                                        <th>맡긴 옷 개수</th>
+                                        <th>가격</th>
+                                        <th>등록 시간</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="post : ${posts}">
+                                            <td><a href="detail.html" th:href="@{/customer-list/{postId}/detail(postId = ${post.id})}" th:text="${post.id}">번호</a></td>
+                                            <td><a href="detail.html" th:href="@{/customer-list/{postId}/detail(postId = ${post.id})}" th:text="${post.name}">이름</a></td>
+                                            <td><a href="detail.html" th:href="@{/customer-list/{postId}/detail(postId = ${post.id})}" th:text="${post.phone}">전화번호</a></td>
+                                            <td><a href="detail.html" th:href="@{/customer-list/{postId}/detail(postId = ${post.id})}" th:text="${post.clothCount}">맡긴 옷 개수</a></td>
+                                            <td><a href="detail.html" th:href="@{/customer-list/{postId}/detail(postId = ${post.id})}" th:text="${post.price}">가격</a></td>
+                                            <td><a href="detail.html" th:href="@{/customer-list/{postId}/detail(postId = ${post.id})}" th:text="${post.createTime}">등록 시간</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
             <!-- Footer -->
             <footer th:replace="fragment/common/footer :: footer"></footer>
             <!-- End of Footer -->

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragment/common/head :: head"></head>
+
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul th:replace="/fragment/common/sidebar.html :: sidebar"></ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <nav th:replace="fragment/common/nav :: nav"></nav>
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid m-auto w-75">
+                <div class="card shadow">
+                    <div class="card-header">
+                        <h6>손님 세부 정보</h6>
+                    </div>
+                    <div class="card-body p-4">
+                        <form action="tables.html" th:action th:object="${post}" method="post" id="customerForm">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="customerName">이름 입력</label>
+                                    <input type="text" th:value="*{name}" class="form-control form-control-user" id="customerName" placeholder="이름을 입력해주세요." readonly>
+                                </div>
+                                <div class="col">
+                                    <label for="customerPhone">전화번호 입력</label>
+                                    <input type="text" th:value="*{phone}" class="form-control form-control-user" id="customerPhone" placeholder="전화번호를 입력해주세요." readonly>
+                                </div>
+                            </div>
+                            <div class="row pt-3">
+                                <div class="col">
+                                    <label for="customerClothCount">맡긴 옷 개수</label>
+                                    <input type="text" th:value="*{clothCount}" class="form-control form-control-user" id="customerClothCount" placeholder="맡긴 옷의 개수를 입력해주세요." readonly>
+                                </div>
+                                <div class="col">
+                                    <label for="customerPrice">가격</label>
+                                    <input type="text" th:value="*{price}" class="form-control form-control-user" id="customerPrice" placeholder="가격을 입력해주세요." readonly>
+                                </div>
+                            </div>
+                            <div class="row pt-3">
+                                <div class="col">
+                                    <label for="customerContent">추가 정보</label>
+                                    <textarea th:text="*{content}" class="form-control" id="customerContent"
+                                              placeholder="추가 정보를 입력해주세요."
+                                              style="resize: none; height: 7.25rem;" readonly>
+                                    </textarea>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <a th:href="@{|/customer-list/${post.id}/detail/update|}" class="text-white">
+                                    <button class="btn btn-success mr-3" type="submit" form="customerForm">수정</button>
+                                </a>
+                                <a th:href="@{/customer-list}" class="text-white">
+                                    <button class="btn btn-danger">취소</button>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer th:replace="fragment/common/footer :: footer"></footer>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+<div th:replace="fragment/common/logout_modal :: logoutModal"></div>
+
+<div th:replace="fragment/common/script :: script"></div>
+
+</body>
+
+</html>

@@ -1,16 +1,16 @@
 package project.laundry.entity;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import project.laundry.entity.status.ClothStatus;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
 @Table(name = "post")
-public class post extends BaseEntity {
+@Builder
+public class post extends TimeEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "post_id")
@@ -35,5 +35,4 @@ public class post extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "owner_id")
     private owner owner;
-
 }
