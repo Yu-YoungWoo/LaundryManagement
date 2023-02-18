@@ -41,7 +41,7 @@
                                             <div th:text="#{month.income}" class="text-xl-left font-weight-bold text-primary mb-1">
                                                 한달 수입
                                             </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">40,000원</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" th:text="${revenueInMonth}">40,000원</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -59,7 +59,7 @@
                                         <div class="col mr-2">
                                             <div th:text="#{month.customer}" class="text-xl-left font-weight-bold text-warning text-uppercase mb-1">
                                                 한달 방문자 수</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18명</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" th:text="${visitsInMonth}">18명</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -77,7 +77,7 @@
                                         <div class="col mr-2">
                                             <div th:text="#{year.income}" class="text-xl-left font-weight-bold text-success text-uppercase mb-1">
                                                 전체 수입</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">10,000,000원</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" th:text="${revenueInYear}">10,000,000원</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -96,7 +96,7 @@
                                             <div th:text="#{year.customer}" class="text-xl-left font-weight-bold text-warning text-uppercase mb-1">
                                                 총 방문자 수
                                             </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">351명</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" th:text="${visitsInYear}">351명</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -107,7 +107,7 @@
                         </div>
                     </div>
 
-                    <!-- Content Row -->
+                    <!-- 수입 그래프 -->
                     <div class="row">
                         <!-- Area Chart -->
                         <div class="col-xl-12 col-lg-7">
@@ -167,9 +167,6 @@
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
 
-    <script>
-        // 여기에 myLineChart.data 값 넣어야 함
-    </script>
 
 </body>
 

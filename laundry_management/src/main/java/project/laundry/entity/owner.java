@@ -19,5 +19,5 @@ public class owner {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "diary_id")
-    private owner_daily_diary diary;
+    private Visit diary;
 }

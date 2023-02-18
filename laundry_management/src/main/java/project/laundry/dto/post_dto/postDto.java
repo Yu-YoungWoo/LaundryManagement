@@ -11,7 +11,6 @@ import java.time.LocalDate;
 @Builder
 public class postDto {
 
-
     private Long id;
 
     @NotEmpty

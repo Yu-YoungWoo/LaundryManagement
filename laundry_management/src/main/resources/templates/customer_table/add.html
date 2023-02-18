@@ -28,7 +28,7 @@
                             <h6>손님 정보 입력</h6>
                         </div>
                         <div class="card-body p-4">
-                            <form th:action th:object="${postForm}" method="post" id="customerForm" novalidate>
+                            <form th:action th:object="${post}" method="Post" id="customerForm" novalidate>
                                 <div class="row">
                                     <div class="col">
                                        <label for="customerName">이름 입력</label>
@@ -72,13 +72,12 @@
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col">
-
                                         <button class="btn btn-success mr-3" type="submit" form="customerForm">등록</button>
 
-                                        <a th:href="@{/customer-list}" class="text-white">
-                                            <button class="btn btn-danger">취소</button>
-                                        </a>
-
+                                        <button class="btn btn-danger"
+                                                onclick="location.href='tables.html'" th:onclick="|location.href='@{/customer-list}'|" type="button">
+                                            취소
+                                        </button>
                                     </div>
                                 </div>
                             </form>
