@@ -6,9 +6,9 @@ import org.springframework.transaction.annotation.Transactional;
 import project.laundry.repository.VisitRepository;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.Year;
 import java.time.temporal.TemporalAdjusters;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -35,7 +35,6 @@ public class VisitService {
         return repository.getVisitsInYear(startOfYear, endOfYear);
     }
 
-
     /**
      * 당월/당년 수입 통계 메소드
      */
@@ -52,4 +51,16 @@ public class VisitService {
 
         return repository.getRevenueInYear(startOfYear, endOfYear);
     }
+
+    public List<Integer> getTotalRevenueByMonth() {
+        int[] month = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+        List<Integer> revenueList = new ArrayList<>();
+        for(int i : month) {
+            revenueList.add(repository.getTotalRevenueByMonth(i));
+
+        }
+
+        return revenueList;
+    }
+
 }

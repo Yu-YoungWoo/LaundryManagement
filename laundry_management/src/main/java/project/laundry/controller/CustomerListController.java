@@ -58,8 +58,6 @@ public class CustomerListController {
     public String GET_detail(@PathVariable Long postId, Model model) {
         postDto postDto = service.findOne(postId);
 
-        log.info("postDto.id = {}", postDto.getId());
-
         model.addAttribute("post", postDto);
 
         return "/customer_table/detail";
@@ -69,8 +67,6 @@ public class CustomerListController {
     @GetMapping("/{postId}/detail/update")
     public String GET_update(@PathVariable Long postId, Model model) {
         postDto postDto = service.findOne(postId);
-
-        log.info("postId = {}", postId);
 
         model.addAttribute("post", postDto);
 
@@ -85,10 +81,17 @@ public class CustomerListController {
             log.error("POST_update BR : {}", br);
             return "/customer_table/update";
         }
-        log.info("update-postId : {}", postId);
         Long updatePostId = service.update(postId, dto);
 
         return "redirect:/customer-list/{postId}/detail";
+    }
+
+
+    @GetMapping("/{postId}/detail/delete")
+    public String DELETE_Post(@PathVariable("postId") Long postId, Model model) {
+        service.delete(postId);
+
+        return "redirect:/customer-list";
     }
 
 

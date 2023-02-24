@@ -29,7 +29,7 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 
 // Area Chart Example
 var ctx = document.getElementById("myAreaChart");
-var myLineChart = new Chart(ctx, {
+var chart = {
   type: 'line',
   data: {
     labels: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
@@ -46,7 +46,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [100, 121, 321, 3214, 541324, 5324, 4234, 43124, 4324, 4324, 42342, 3213]
+      data: [],
     }],
   },
   options: {
@@ -118,4 +118,5 @@ var myLineChart = new Chart(ctx, {
       }
     }
   }
-});
+}
+var myLineChart = new Chart(ctx, chart);

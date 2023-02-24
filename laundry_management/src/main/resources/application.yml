@@ -6,7 +6,7 @@ spring:
     driver-class-name: org.h2.Driver
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         #        show_sql: true
@@ -14,6 +14,16 @@ spring:
   messages:
     basename: messages
     encoding: UTF-8
+
+  mvc:
+    hidden-method:
+      filter:
+        enabled: true
 logging.level:
   org.hibernate.SQL: debug
   org.hibernate.type: trace
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG

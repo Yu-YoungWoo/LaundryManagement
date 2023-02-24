@@ -6,9 +6,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import project.laundry.dto.post_dto.postDto;
 import project.laundry.service.PostService;
 import project.laundry.service.VisitService;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/")
@@ -48,12 +51,15 @@ public class MainController {
         Long visitsInYear = service.getVisitsInYear();
         Long revenueInYear = service.getRevenueInYear();
 
+        List<Integer> list = service.getTotalRevenueByMonth();
+
         model.addAttribute("visitsInMonth", visitsInMonth);
         model.addAttribute("revenueInMonth", revenueInMonth);
         model.addAttribute("visitsInYear", visitsInYear);
         model.addAttribute("revenueInYear", revenueInYear);
 
+        model.addAttribute("list", list);
+
         return "index";
     }
-
 }

@@ -89,6 +89,14 @@ public class PostService {
         return findPost.updatePost(dto);
     }
 
+    @Transactional
+    public void delete(Long postId) {
+
+        Post findPost = repository.findById(postId).orElseThrow(() -> new RuntimeException("존재하지 않는 손님입니다."));
+        repository.delete(findPost);
+
+    }
+
 
     public Post dtoToEntity(postDto dto) {
         return Post.builder()

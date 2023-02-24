@@ -59,10 +59,19 @@
                             <div class="row mt-3">
                                 <div class="col">
                                     <a th:href="@{/customer-list/{postId}/detail/update(postId = ${post.id})}">
-                                        <button class="btn btn-success mr-3" type="button">수정</button>
+                                        <button class="btn btn-block btn-lg btn-success mr-3" type="button">수정</button>
                                     </a>
+                                </div>
+                                <div class="col">
+                                    <a th:href="@{/customer-list/{postId}/detail/delete(postId = ${post.id})}" class="text-white">
+                                        <button class="btn btn-block btn-lg btn-danger">삭제</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
                                     <a th:href="@{/customer-list}" class="text-white">
-                                        <button class="btn btn-danger">취소</button>
+                                        <button class="btn btn-block btn-lg btn-secondary">취소</button>
                                     </a>
                                 </div>
                             </div>
@@ -93,6 +102,8 @@
 <div th:replace="fragment/common/logout_modal :: logoutModal"></div>
 
 <div th:replace="fragment/common/script :: script"></div>
+
+
 
 </body>
 

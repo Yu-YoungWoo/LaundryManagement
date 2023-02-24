@@ -28,4 +28,9 @@ public interface VisitRepository extends JpaRepository<Visit, Long> {
     // 일년 방문자 수
     @Query("SELECT COUNT(v) FROM Visit v WHERE v.visitDateTime >= :startOfYear AND v.visitDateTime <= :endOfYear")
     Long getVisitsInYear(@Param("startOfYear") LocalDate startOfYear, @Param("endOfYear") LocalDate endOfYear);
+
+    // 당월 수입
+    @Query("SELECT COALESCE(SUM(v.price), 0) FROM Visit v WHERE MONTH(v.visitDateTime) = :month")
+    int getTotalRevenueByMonth(@Param("month") int month);
+
 }
