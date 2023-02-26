@@ -54,6 +54,15 @@
                                     </div>
                                 </div>
                                 <div class="col">
+                                    <label for="customerClothStatus">세탁물 상태</label>
+                                    <select class="form-control" id="customerClothStatus" th:field="*{clothStatus}">
+                                        <option th:each="status : ${T(project.laundry.entity.status.ClothStatus).values()}"
+                                                th:value="${status}"
+                                                th:text="${status.status}"
+                                        ></option>
+                                    </select>
+                                </div>
+                                <div class="col">
                                     <label for="customerPrice">가격</label>
                                     <input type="text" th:field="*{price}" th:errorclass="is-invalid" class="form-control form-control-user" id="customerPrice" placeholder="가격을 입력해주세요." required>
                                     <div class="invalid-feedback">

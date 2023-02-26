@@ -44,6 +44,10 @@
                                     <input type="text" th:value="${post.clothCount}" class="form-control form-control-user" id="customerClothCount" placeholder="맡긴 옷의 개수를 입력해주세요." readonly>
                                 </div>
                                 <div class="col">
+                                    <label for="customerClothStatus">세탁물 상태</label>
+                                    <input id="customerClothStatus" th:value="${post.clothStatus.getStatus()}" class="form-control form-control-user" readonly>
+                                </div>
+                                <div class="col">
                                     <label for="customerPrice">가격</label>
                                     <input type="text" th:value="${post.price}" class="form-control form-control-user" id="customerPrice" placeholder="가격을 입력해주세요." readonly>
                                 </div>

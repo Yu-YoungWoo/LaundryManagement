@@ -2,6 +2,7 @@ package project.laundry.dto.post_dto;
 
 import jakarta.validation.constraints.*;
 import lombok.*;
+import project.laundry.entity.status.ClothStatus;
 
 import java.time.LocalDate;
 
@@ -25,6 +26,8 @@ public class postDto {
 
     @NotNull @PositiveOrZero
     private int price;
+
+    private ClothStatus clothStatus;
 
     @NotNull
     @Size(min = 0, max = 999)

@@ -16,7 +16,7 @@
         <li class="nav-item active">
             <a class="nav-link" th:href="@{/}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span></a>
+                <span>홈</span></a>
         </li>
 
 
@@ -25,18 +25,29 @@
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            손님 정보 테이블
+            손님 목록 리스트
         </div>
-
         <!-- Nav Item - Tables -->
         <li class="nav-item">
             <a class="nav-link" th:href="@{/customer-list}">
                 <i class="fas fa-fw fa-table"></i>
-                <span>Tables</span></a>
+                <span>손님 목록</span>
+            </a>
         </li>
 
         <!-- Divider -->
-        <hr class="sidebar-divider d-none d-md-block">
+        <hr class="sidebar-divider">
+
+        <div class="sidebar-heading">
+            제고 관리 리스트
+        </div>
+
+        <li class="nav-item">
+           <a class="nav-link" th:href="@{/stock-quantity}">
+               <i class="fas fa-fw fa-boxes"></i>
+               <span>제고 관리</span>
+           </a>
+        </li>
 
         <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline">

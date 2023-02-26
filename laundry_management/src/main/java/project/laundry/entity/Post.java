@@ -33,7 +33,7 @@ public class Post extends TimeEntity {
     private int price;
 
     @Enumerated(EnumType.STRING)
-    private ClothStatus status;
+    private ClothStatus clothStatus;
 
     @Lob
     private String content;
@@ -53,6 +53,7 @@ public class Post extends TimeEntity {
         this.clothCount = dto.getClothCount();
         this.price = dto.getPrice();
         this.content = dto.getContent();
+        this.clothStatus = dto.getClothStatus();
 
         return this.id;
     }

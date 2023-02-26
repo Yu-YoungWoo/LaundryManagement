@@ -24,8 +24,8 @@
                     <div class="row">
                         <div class="col">
                             <!-- Page Heading -->
-                            <h1 class="h3 mb-2 text-gray-800">손님 목록</h1>
-                            <p class="mb-4">손님들의 목록을 등록, 삭제하는 페이지입니다.</p>
+                            <h1 class="h3 mb-2 text-gray-800" th:text="#{customer.title}">손님 목록</h1>
+                            <p class="mb-4" th:text="#{customer.title.sub}">손님들의 목록을 등록, 삭제하는 페이지입니다.</p>
                         </div>
                     </div>
 
@@ -47,7 +47,8 @@
                                         <th>번호</th>
                                         <th>이름</th>
                                         <th>전화번호</th>
-                                        <th>맡긴 옷 개수</th>
+                                        <th>세탁물 개수</th>
+                                        <th>세탁물 상태</th>
                                         <th>가격</th>
                                         <th>등록 시간</th>
                                     </tr>
@@ -57,7 +58,8 @@
                                             <td><a href="detail.html" th:href="@{/customer-list/{postId}/detail(postId = ${post.id})}" th:text="${post.id}">번호</a></td>
                                             <td><a href="detail.html" th:href="@{/customer-list/{postId}/detail(postId = ${post.id})}" th:text="${post.name}">이름</a></td>
                                             <td><a href="detail.html" th:href="@{/customer-list/{postId}/detail(postId = ${post.id})}" th:text="${post.phone}">전화번호</a></td>
-                                            <td><a href="detail.html" th:href="@{/customer-list/{postId}/detail(postId = ${post.id})}" th:text="${post.clothCount}">맡긴 옷 개수</a></td>
+                                            <td><a href="detail.html" th:href="@{/customer-list/{postId}/detail(postId = ${post.id})}" th:text="${post.clothCount}">세탁물 개수</a></td>
+                                            <td><a href="detail.html" th:href="@{/customer-list/{postId}/detail(postId = ${post.id})}" th:text="${post.clothStatus.getStatus()}">세탁물 상태</a></td>
                                             <td><a href="detail.html" th:href="@{/customer-list/{postId}/detail(postId = ${post.id})}" th:text="${post.price}">가격</a></td>
                                             <td><a href="detail.html" th:href="@{/customer-list/{postId}/detail(postId = ${post.id})}" th:text="${post.createTime}">등록 시간</a></td>
                                         </tr>

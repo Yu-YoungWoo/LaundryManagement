@@ -104,6 +104,7 @@ public class PostService {
                 .name(dto.getName())
                 .phone(dto.getPhone())
                 .clothCount(dto.getClothCount())
+                .clothStatus(dto.getClothStatus())
                 .price(dto.getPrice())
                 .content(dto.getContent())
                 .build();
@@ -115,6 +116,7 @@ public class PostService {
                 .name(entity.getName())
                 .phone(entity.getPhone())
                 .clothCount(entity.getClothCount())
+                .clothStatus(entity.getClothStatus())
                 .price(entity.getPrice())
                 .content(entity.getContent())
                 .createTime(entity.getCreateTime())

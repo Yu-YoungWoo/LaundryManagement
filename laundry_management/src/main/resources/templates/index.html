@@ -24,10 +24,11 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">전체 통계</h1>
+
+                    <div class="jumbotron">
+                        <h1>세탁소 장부 관리 프로잭트</h1>
+                        <p class="lead">손님 관리, 제고 관리, 기계 관리, 수입 통계를 한눈에 볼 수 있도록 만든 프로잭트 입니다.</p>
                     </div>
-                    <p class="mb-4">1달, 1년 기준 수입, 방문 손님의 통계를 나타낸 페이지 입니다.</p>
 
                     <!-- 수입 통계 -->
                     <div class="row">
@@ -226,7 +227,7 @@
                         left: 10,
                         right: 25,
                         top: 25,
-                        bottom: 0
+                        bottom: 5
                     }
                 },
                 scales: {
@@ -247,7 +248,7 @@
                         ticks: {
                             min: 0,
                             max: 10000000,
-                            maxTicksLimit: 5,
+                            maxTicksLimit: 10,
                             padding: 10,
                             // Include a dollar sign in the ticks
                             callback: function(value, index, values) {
