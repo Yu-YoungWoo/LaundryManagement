@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Builder
 public class Visit extends TimeEntity {
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "visit_id")
     private Long id;
 
