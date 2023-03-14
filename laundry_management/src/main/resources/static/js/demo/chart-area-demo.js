@@ -46,7 +46,7 @@ var chart = {
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [],
+      data: income_list,
     }],
   },
   options: {
@@ -77,7 +77,7 @@ var chart = {
         ticks: {
           min: 0,
           max: 10000000,
-          maxTicksLimit: 5,
+          maxTicksLimit: 10,
           padding: 10,
           // Include a dollar sign in the ticks
           callback: function(value, index, values) {

@@ -30,31 +30,31 @@
                     <div class="card-body p-4">
                             <div class="row">
                                 <div class="col">
-                                    <label for="customerName">이름 입력</label>
+                                    <label for="customerName" class="text-truncate">이름 입력</label>
                                     <input type="text" th:value="${post.name}" class="form-control form-control-user" id="customerName" placeholder="이름을 입력해주세요." readonly>
                                 </div>
                                 <div class="col">
-                                    <label for="customerPhone">전화번호 입력</label>
+                                    <label for="customerPhone" class="text-truncate">전화번호 입력</label>
                                     <input type="text" th:value="${post.phone}" class="form-control form-control-user" id="customerPhone" placeholder="전화번호를 입력해주세요." readonly>
                                 </div>
                             </div>
-                            <div class="row pt-3">
+                            <div class="row mt-3">
                                 <div class="col">
-                                    <label for="customerClothCount">맡긴 옷 개수</label>
+                                    <label for="customerClothCount" class="text-truncate">맡긴 옷 개수</label>
                                     <input type="text" th:value="${post.clothCount}" class="form-control form-control-user" id="customerClothCount" placeholder="맡긴 옷의 개수를 입력해주세요." readonly>
                                 </div>
                                 <div class="col">
-                                    <label for="customerClothStatus">세탁물 상태</label>
+                                    <label for="customerClothStatus" class="text-truncate">세탁물 상태</label>
                                     <input id="customerClothStatus" th:value="${post.clothStatus.getStatus()}" class="form-control form-control-user" readonly>
                                 </div>
                                 <div class="col">
-                                    <label for="customerPrice">가격</label>
+                                    <label for="customerPrice" class="text-truncate">가격</label>
                                     <input type="text" th:value="${post.price}" class="form-control form-control-user" id="customerPrice" placeholder="가격을 입력해주세요." readonly>
                                 </div>
                             </div>
-                            <div class="row pt-3">
+                            <div class="row mt-3">
                                 <div class="col">
-                                    <label for="customerContent">추가 정보</label>
+                                    <label for="customerContent" class="text-truncate">추가 정보</label>
                                     <textarea th:text="${post.content}" class="form-control" id="customerContent"
                                               style="resize: none; height: 7.25rem;" readonly>
                                     </textarea>

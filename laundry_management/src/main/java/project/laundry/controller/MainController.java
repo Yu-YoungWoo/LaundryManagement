@@ -6,10 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import project.laundry.dto.post_dto.postDto;
 import project.laundry.service.PostService;
-import project.laundry.service.VisitService;
+import project.laundry.service.StatisticsService;
 
 import java.util.List;
 
@@ -19,7 +18,7 @@ import java.util.List;
 @Slf4j
 public class MainController {
 
-    private final VisitService service;
+    private final StatisticsService service;
     private final PostService postService;
 
     public void init() {
@@ -44,22 +43,33 @@ public class MainController {
     @GetMapping
     public String mainPage(Model model) {
 
-
         Long visitsInMonth = service.getVisitsInMonth();
         Long revenueInMonth = service.getRevenueInMonth();
-
         Long visitsInYear = service.getVisitsInYear();
         Long revenueInYear = service.getRevenueInYear();
 
-        List<Integer> list = service.getTotalRevenueByMonth();
+        List<postDto> top5Posts = postService.findTop5ByOrderByIdDesc();
 
         model.addAttribute("visitsInMonth", visitsInMonth);
         model.addAttribute("revenueInMonth", revenueInMonth);
         model.addAttribute("visitsInYear", visitsInYear);
         model.addAttribute("revenueInYear", revenueInYear);
 
-        model.addAttribute("list", list);
+        model.addAttribute("posts", top5Posts);
 
         return "index";
     }
+
+    @GetMapping("/revenue-detail")
+    public String GET_revenue(Model model) {
+
+        List<Integer> list = service.getTotalRevenueByMonth();
+        List<Integer> progress = service.getLaundryProgress();
+
+        model.addAttribute("list", list);
+        model.addAttribute("progress", progress);
+
+        return "/revenue/main";
+    }
+
 }

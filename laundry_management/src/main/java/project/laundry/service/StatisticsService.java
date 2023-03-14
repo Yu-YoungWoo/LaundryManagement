@@ -3,19 +3,24 @@ package project.laundry.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import project.laundry.repository.VisitRepository;
+import project.laundry.entity.status.ClothStatus;
+import project.laundry.repository.PostRepository;
+import project.laundry.repository.StatisticsRepository;
 
 import java.time.LocalDate;
 import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class VisitService {
+public class StatisticsService {
 
-    private final VisitRepository repository;
+    private final StatisticsRepository repository;
+    private final PostRepository postRepository;
 
     LocalDate currentDate = LocalDate.now();
 
@@ -61,6 +66,16 @@ public class VisitService {
         }
 
         return revenueList;
+    }
+
+    public List<Integer> getLaundryProgress() {
+        int WASH_BEFORE = postRepository.countClothesStatus(ClothStatus.WASH_BEFORE);
+        int WASH_IN_PROCESS = postRepository.countClothesStatus(ClothStatus.WASH_IN_PROCESS);
+        int WASH_COMPLETE = postRepository.countClothesStatus(ClothStatus.WASH_COMPLETE);
+
+        Stream<Integer> stream = Stream.of(WASH_BEFORE, WASH_IN_PROCESS, WASH_COMPLETE);
+
+        return new ArrayList<>(stream.toList());
     }
 
 }

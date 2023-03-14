@@ -2,18 +2,23 @@ package project.laundry.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import project.laundry.dto.post_dto.postDto;
 import project.laundry.entity.Post;
 import project.laundry.entity.Visit;
 import project.laundry.repository.PostRepository;
-import project.laundry.repository.VisitRepository;
+import project.laundry.repository.StatisticsRepository;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -22,7 +27,7 @@ import java.util.Optional;
 public class PostService {
 
     private final PostRepository repository;
-    private final VisitRepository visitRepository;
+    private final StatisticsRepository statisticsRepository;
 
 //    @Transactional
 //    public void init() {
@@ -95,6 +100,19 @@ public class PostService {
         Post findPost = repository.findById(postId).orElseThrow(() -> new RuntimeException("존재하지 않는 손님입니다."));
         repository.delete(findPost);
 
+    }
+
+
+    public List<postDto> findTop5ByOrderByIdDesc() {
+        Pageable pageable = PageRequest.of(0, 5, Sort.by("id").descending());
+        Page<Post> top5Posts = repository.findTop5ByOrderByIdDesc(pageable);
+
+        List<Post> posts = top5Posts.getContent();
+
+        log.info("posts : {}", posts);
+
+        return posts.stream().limit(5)
+                .map(post -> entityToDto(post)).toList();
     }
 
 

@@ -3,13 +3,12 @@ package project.laundry.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import project.laundry.entity.Post;
 import project.laundry.entity.Visit;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
-public interface VisitRepository extends JpaRepository<Visit, Long> {
+
+public interface StatisticsRepository extends JpaRepository<Visit, Long> {
 
     // 한달 수입
     @Query("SELECT COALESCE(SUM(v.price), 0) FROM Visit v WHERE v.visitDateTime >= :startOfMonth AND v.visitDateTime <= :endOfMonth")
@@ -32,5 +31,6 @@ public interface VisitRepository extends JpaRepository<Visit, Long> {
     // 당월 수입
     @Query("SELECT COALESCE(SUM(v.price), 0) FROM Visit v WHERE MONTH(v.visitDateTime) = :month")
     int getTotalRevenueByMonth(@Param("month") int month);
+
 
 }

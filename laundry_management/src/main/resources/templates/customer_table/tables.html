@@ -41,7 +41,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                     <tr>
                                         <th>번호</th>
@@ -54,14 +54,14 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                        <tr th:each="post : ${posts}">
-                                            <td><a href="detail.html" th:href="@{/customer-list/{postId}/detail(postId = ${post.id})}" th:text="${post.id}">번호</a></td>
-                                            <td><a href="detail.html" th:href="@{/customer-list/{postId}/detail(postId = ${post.id})}" th:text="${post.name}">이름</a></td>
-                                            <td><a href="detail.html" th:href="@{/customer-list/{postId}/detail(postId = ${post.id})}" th:text="${post.phone}">전화번호</a></td>
-                                            <td><a href="detail.html" th:href="@{/customer-list/{postId}/detail(postId = ${post.id})}" th:text="${post.clothCount}">세탁물 개수</a></td>
-                                            <td><a href="detail.html" th:href="@{/customer-list/{postId}/detail(postId = ${post.id})}" th:text="${post.clothStatus.getStatus()}">세탁물 상태</a></td>
-                                            <td><a href="detail.html" th:href="@{/customer-list/{postId}/detail(postId = ${post.id})}" th:text="${post.price}">가격</a></td>
-                                            <td><a href="detail.html" th:href="@{/customer-list/{postId}/detail(postId = ${post.id})}" th:text="${post.createTime}">등록 시간</a></td>
+                                        <tr th:each="post : ${posts}" th:onclick="|location.href='@{/customer-list/{postId}/detail(postId=${post.id})}'|">
+                                            <td th:text="${post.id}" class="text-truncate">번호</td>
+                                            <td th:text="${post.name}" class="text-truncate">이름</td>
+                                            <td th:text="${post.phone}" class="text-truncate">전화번호</td>
+                                            <td th:text="${post.clothCount}" class="text-truncate">세탁물 개수</td>
+                                            <td th:text="${post.clothStatus.getStatus()}" class="text-truncate">세탁물 상태</td>
+                                            <td th:text="${post.price}" class="text-truncate">가격</td>
+                                            <td th:text="${post.createTime}" class="text-truncate">등록 시간</td>
                                         </tr>
                                     </tbody>
                                 </table>

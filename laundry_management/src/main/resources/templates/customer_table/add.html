@@ -31,14 +31,14 @@
                             <form th:action th:object="${post}" method="Post" id="customerForm" novalidate>
                                 <div class="row">
                                     <div class="col">
-                                       <label for="customerName">이름 입력</label>
+                                       <label for="customerName" class="text-truncate">이름 입력</label>
                                        <input type="text" th:field="*{name}" th:errorclass="is-invalid" class="form-control form-control-user" id="customerName" placeholder="이름을 입력해주세요." required>
                                        <div class="invalid-feedback">
                                            * 이름은 공백일 수 없습니다.
                                        </div>
                                     </div>
                                     <div class="col">
-                                        <label for="customerPhone">전화번호 입력</label>
+                                        <label for="customerPhone" class="text-truncate">전화번호 입력</label>
                                         <input type="text" th:field="*{phone}" th:errorclass="is-invalid" class="form-control form-control-user" id="customerPhone" placeholder="전화번호를 입력해주세요." required>
                                         <div class="invalid-feedback" th:text="#{invalid.phone}">
                                             * 잘못된 전화번호 양식 또는 공백일 수 없습니다.
@@ -47,14 +47,14 @@
                                 </div>
                                 <div class="row pt-3">
                                     <div class="col">
-                                        <label for="customerClothCount">맡긴 옷 개수</label>
+                                        <label for="customerClothCount" class="text-truncate">맡긴 옷 개수</label>
                                         <input type="text" th:field="*{clothCount}" th:errorclass="is-invalid" class="form-control form-control-user" id="customerClothCount" placeholder="맡긴 옷의 개수를 입력해주세요." required>
                                         <div class="invalid-feedback">
                                             * 공백 또는 문자는 허용하지 않습니다.
                                         </div>
                                     </div>
                                     <div class="col">
-                                        <label for="customerClothStatus">세탁물 상태</label>
+                                        <label for="customerClothStatus" class="text-truncate">세탁물 상태</label>
                                         <select class="form-control" id="customerClothStatus" th:field="*{clothStatus}">
                                             <option th:each="status : ${T(project.laundry.entity.status.ClothStatus).values()}"
                                                     th:value="${status}"
@@ -63,7 +63,7 @@
                                         </select>
                                     </div>
                                     <div class="col">
-                                        <label for="customerPrice">가격</label>
+                                        <label for="customerPrice" class="text-truncate">가격</label>
                                         <input type="text" th:field="*{price}" th:errorclass="is-invalid" class="form-control form-control-user" id="customerPrice" placeholder="가격을 입력해주세요." required>
                                         <div class="invalid-feedback">
                                             * 공백 또는 문자는 허용하지 않습니다.
@@ -72,7 +72,7 @@
                                 </div>
                                 <div class="row pt-3">
                                     <div class="col">
-                                        <label for="customerContent">추가 정보</label>
+                                        <label for="customerContent" class="text-truncate">추가 정보</label>
                                         <textarea th:field="*{content}" class="form-control" id="customerContent"
                                                   placeholder="추가 정보를 입력해주세요."
                                                   style="resize: none; height: 7.25rem;">
